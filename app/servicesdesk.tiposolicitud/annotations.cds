@@ -37,3 +37,7 @@ annotate service.TipoSolicitud with @(
     ],
 );
 
+annotate service.TipoSolicitud with {
+    ID @Common.FieldControl : #ReadOnly
+};
+
