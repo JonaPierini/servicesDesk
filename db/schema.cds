@@ -14,7 +14,7 @@ entity Solicitudes: managed
     tipo_solicitud : Association to one TipoSolicitud;
     urgencia : Association to Urgencia default 'Bajo';
     persona_soporte : Association to one PersonasSoporte;
-    usuario : type of managed:createdBy;
+    usuario : String @cds.on.insert: $user;
 //    comunicaciones : Association to one Comunicaciones;
     comunicaciones  : Composition of many {
            key ID    : UUID;

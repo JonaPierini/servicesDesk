@@ -5,7 +5,7 @@ annotate service.TipoSolicitud with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'nombre',
+                Label : '{i18n>Nombre}',
                 Value : nombre,
             },
             {
@@ -26,7 +26,7 @@ annotate service.TipoSolicitud with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'nombre',
+            Label : '{i18n>Nombre}',
             Value : nombre,
         },
         {

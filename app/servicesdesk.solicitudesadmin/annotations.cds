@@ -20,11 +20,6 @@ annotate service.SolicitudesAdmin with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : createdBy,
-                Label : '{i18n>CreadoPor}',
-            },
-            {
-                $Type : 'UI.DataField',
                 Value : createdAt,
                 Label : '{i18n>FechaCreacion}',
             },
@@ -36,11 +31,15 @@ annotate service.SolicitudesAdmin with @(
             {
                 $Type : 'UI.DataField',
                 Value : persona_soporte_ID,
-                Label : 'persona_soporte_ID',
+                Label : '{i18n>Personasoporte}',
             },
             {
                 $Type : 'UI.DataField',
                 Value : tipo_solicitud_ID,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : usuario,
             },
         ],
     },
@@ -60,8 +59,12 @@ annotate service.SolicitudesAdmin with @(
         },
         {
             $Type : 'UI.DataField',
-            Value : createdBy,
-            Label : '{i18n>CreadoPor}',
+            Value : usuario,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : createdAt,
+            Label : '{i18n>FechaCreacion}',
         },
         {
             $Type : 'UI.DataField',
@@ -82,22 +85,23 @@ annotate service.SolicitudesAdmin with @(
         {
             $Type : 'UI.DataField',
             Value : tipo_solicitud_ID,
-            Label : '{i18n>Tiposolicitudid}',
+            Label : '{i18n>Tiposolicitud}',
         },
         {
             $Type : 'UI.DataField',
             Value : persona_soporte_ID,
-            Label : '{i18n>Personasoporteid}',
+            Label : '{i18n>Personasoporte}',
         },
     ],
     UI.SelectionFields : [
         tipo_solicitud_ID,
         estado_code,
+        usuario,
     ],
     UI.HeaderInfo : {
         Title : {
             $Type : 'UI.DataField',
-            Value : createdBy,
+            Value : usuario,
         },
         TypeName : '',
         TypeNamePlural : '',
@@ -123,7 +127,10 @@ annotate service.SolicitudesAdmin with {
         },
         Common.Label : '{i18n>Tiposolicitudid}',
         Common.ValueListWithFixedValues : true,
-        Common.Text : tipo_solicitud.nombre,
+        Common.Text : {
+            $value : tipo_solicitud.nombre,
+            ![@UI.TextArrangement] : #TextOnly
+        },
     )
 };
 
@@ -150,10 +157,18 @@ annotate service.SolicitudesAdmin with {
                 },
             ],
         },
-        Common.ValueListWithFixedValues : true
+        Common.ValueListWithFixedValues : true,
+        Common.Text : {
+            $value : persona_soporte.nombre,
+            ![@UI.TextArrangement] : #TextOnly
+        },
 )};
 
 annotate service.PersonasSoporte with {
     ID @Common.Text : nombre
+};
+
+annotate service.SolicitudesAdmin with {
+    usuario @Common.Label : '{i18n>Usuario}'
 };
 
