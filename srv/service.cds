@@ -3,15 +3,14 @@ using { servicesdesk as my } from '../db/schema';
 @path : '/service/ServicesDeskSvcs'
 service servicesdeskService
 {
-    annotate SolicitudesUser with @restrict : 
-    [
-        { grant : [ 'CREATE', 'READ', 'UPDATE', 'DELETE' ], to : [ 'User' ], where : 'createdBy = $user' },
-        
-    ];
-
     annotate SolicitudesAdmin with @restrict :
     [
         { grant : [ '*' ], to : [ 'Admin' ] }
+    ];
+
+    annotate SolicitudesUser with @restrict :
+    [
+        { grant : [ 'CREATE', 'READ', 'UPDATE', 'DELETE' ], to : [ 'User' ], where : 'createdBy = $user' }
     ];
 
     annotate TipoSolicitud with @restrict :
@@ -32,6 +31,10 @@ service servicesdeskService
     @odata.draft.enabled
     entity TipoSolicitud as
         projection on my.TipoSolicitud;
+
+    @odata.draft.enabled
+    entity PersonasSoporte as
+        projection on my.PersonasSoporte;
 }
 
 annotate servicesdeskService with @requires :

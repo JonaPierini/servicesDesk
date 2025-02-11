@@ -20,8 +20,27 @@ annotate service.SolicitudesAdmin with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : usuario,
-                Label : '{i18n>UsuarioCreador}',
+                Value : createdBy,
+                Label : '{i18n>CreadoPor}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : createdAt,
+                Label : '{i18n>FechaCreacion}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : ID,
+                Label : 'ID',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : persona_soporte_ID,
+                Label : 'persona_soporte_ID',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : tipo_solicitud_ID,
             },
         ],
     },
@@ -41,8 +60,8 @@ annotate service.SolicitudesAdmin with @(
         },
         {
             $Type : 'UI.DataField',
-            Value : usuario,
-            Label : '{i18n>UsuarioCreador}',
+            Value : createdBy,
+            Label : '{i18n>CreadoPor}',
         },
         {
             $Type : 'UI.DataField',
@@ -78,7 +97,7 @@ annotate service.SolicitudesAdmin with @(
     UI.HeaderInfo : {
         Title : {
             $Type : 'UI.DataField',
-            Value : usuario,
+            Value : createdBy,
         },
         TypeName : '',
         TypeNamePlural : '',
@@ -117,5 +136,24 @@ annotate service.SolicitudesAdmin with {
 
 annotate service.SolicitudesAdmin with {
     urgencia @Common.ValueListWithFixedValues : true
+};
+
+annotate service.SolicitudesAdmin with {
+    persona_soporte @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'PersonasSoporte',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : persona_soporte_ID,
+                    ValueListProperty : 'ID',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true
+)};
+
+annotate service.PersonasSoporte with {
+    ID @Common.Text : nombre
 };
 
