@@ -26,7 +26,7 @@ annotate service.SolicitudesUser with @(
             {
                 $Type : 'UI.DataField',
                 Value : estado_code,
-                Label : 'estado_code',
+                Label : '{i18n>Estadocode}',
             },
         ],
     },
@@ -82,6 +82,14 @@ annotate service.SolicitudesUser with @(
             Label : '{i18n>CreadoPor}',
         },
     ],
+    UI.HeaderInfo : {
+        Title : {
+            $Type : 'UI.DataField',
+            Value : createdBy,
+        },
+        TypeName : '',
+        TypeNamePlural : '',
+    },
 );
 
 annotate service.SolicitudesUser with {
@@ -102,6 +110,7 @@ annotate service.SolicitudesUser with {
             ],
         },
         Common.ValueListWithFixedValues : true,
+        Common.Text : tipo_solicitud.nombre,
     )
 };
 
@@ -186,6 +195,6 @@ annotate service.Estado with {
 };
 
 annotate service.SolicitudesUser with {
-    urgencia @(Common.ValueListWithFixedValues : true
-)};
+    urgencia @(Common.ValueListWithFixedValues : true,
+        )};
 

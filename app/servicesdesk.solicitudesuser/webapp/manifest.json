@@ -153,6 +153,15 @@
                     "route": "SolicitudesUser_comunicacionesObjectPage"
                   }
                 }
+              },
+              "controlConfiguration": {
+                "comunicaciones/@com.sap.vocabularies.UI.v1.LineItem#Comunicaciones1": {
+                  "tableSettings": {
+                    "creationMode": {
+                      "name": "Inline"
+                    }
+                  }
+                }
               }
             }
           }
