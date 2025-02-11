@@ -10,11 +10,6 @@ annotate service.SolicitudesUser with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : usuario,
-                Label : '{i18n>CreadoPor}',
-            },
-            {
-                $Type : 'UI.DataField',
                 Value : tipo_solicitud_ID,
                 Label : '{i18n>Tiposolicitudid}',
             },
@@ -27,6 +22,11 @@ annotate service.SolicitudesUser with @(
                 $Type : 'UI.DataField',
                 Value : estado_code,
                 Label : '{i18n>Estadocode}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : usuario,
+                Label : '{i18n>Usuario2}',
             },
         ],
     },
@@ -57,6 +57,11 @@ annotate service.SolicitudesUser with @(
         },
         {
             $Type : 'UI.DataField',
+            Value : usuario,
+            Label : '{i18n>Usuario1}',
+        },
+        {
+            $Type : 'UI.DataField',
             Value : tipo_solicitud.ID,
             Label : '{i18n>Tiposolicitudid}',
         },
@@ -75,11 +80,6 @@ annotate service.SolicitudesUser with @(
             $Type : 'UI.DataField',
             Label : '{i18n>Motivo}',
             Value : motivo,
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : createdBy,
-            Label : '{i18n>CreadoPor}',
         },
     ],
     UI.HeaderInfo : {

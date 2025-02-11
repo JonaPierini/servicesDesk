@@ -16,7 +16,7 @@ service servicesdeskService
     annotate TipoSolicitud with @restrict :
     [
         { grant : [ '*' ], to : [ 'Admin' ] },
-        { grant : [ 'READ' ], to : [ 'User' ] }
+        { grant : [ 'READ' ], to : [ 'User' ] },
     ];
 
     @odata.draft.enabled
